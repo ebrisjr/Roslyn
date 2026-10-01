@@ -2,34 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    
 }
 body{
     background-color: black;
-    color: rgb(17, 219, 219);
-    
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
 }
-h1{
-    color: rgb(242, 87, 30);
-}
-.first{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 1100px;
-    margin: 50px auto;
-    font-size: large;
-   
-}
-header{
-    text-align: center;
+.qqq{
+    background-color: #131034;
+    h2{
+        color: aqua;
+    }
+    h1{
+        color: orangered;
+    }
     img{
         border-radius: 100px;
     }
 
+}
+.first{
+    background-color: #131034;
 
 }
 .second{
-    text-align: center;
+    background-color: #131034;
+    color: aqua;
+    h1{
+        color: orangered;
+    }
 }
 .btn{
     color: rgb(255, 255, 255);
@@ -40,6 +42,7 @@ header{
     margin: 10px auto;
    width: 125px;
    height: 35px;
+   align-items: center;
     
 }
 .btn:hover{
@@ -49,35 +52,23 @@ header{
     color: black;
 }
 .third{
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-    display: grid;
-    padding: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: aqua;
     h2{
         color: orangered;
     }
 }
 .vizz{
-     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: start;
-    display: grid;
-    padding: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    h2{
-        color: white;
-        bold;
+    background-color: black;
+    color: white;
+    p{
+        background-color: orangered;
     }
+    
 }
 .fourth{
-     grid-template-columns: 1fr 1fr;
-     color: white;
-    gap: 20px;
-    align-items: center;
-    display: grid;
-    padding: 50px;
+    background-color: #131034;
+    color: white;
     h2{
         color: orangered;
     }
@@ -86,93 +77,93 @@ header{
     }
 }
 .fifth{
-    align-content: center;
-    text-align: center;
-    padding: 50px;
-}
-.sixth{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 50px;
-    align-content: center;
-    gap: 20px;
-    margin: 30px;
-}
-.seven{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 50px;
-    gap: 30px;
-    margin: 60px;
-}
-.abu{
-    text-align: center;
-}
-.eight{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding: 50px;
-    margin: 70px;
-    font-size: large;
-}
-.nine{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 50px;
-    u{
-        color: blue;
+    color: aqua;
+    h1{
+        color: orangered;
     }
-}
-.byg{
-    align-items: center;
-    margin: 50px;
-    padding: 65px;
-}
-.bym{
-    text-align: center;
-}
-.leg{
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 50px;
-    align-content: center;
-    margin: 30px;
-    font-size: small;
-    u{
-        color: blue;
-    }
-  h3{
-        color: aqua;
-    }
-}
-.class-containter{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    background-color: rgb(255, 254, 254);
-    color: black;
 
 }
+.sixth{
+    background-color: black;
+    color: aqua;
+}
+.seven{
+    border-color: #131034;
+    color: aqua;
+    h1{
+        color: orangered;
+    }
+   
+}
+.min{
+    background-color: #131034;
+}
+.wrt{
+    background-color: black;
+}
+.abu{
+    color: orangered;
+    background-color: #131034;
+}
+.eight{
+    background-color: black;
+    color: aqua;
+}
+.nine{
+    background-color: black;
+    color: aqua;
+    h2{
+        color: orangered;
+    }
+    u{
+        color: blue;
+    }
+}
+.logo{
+    background-color: black;
+    img{
+        border-radius: 100px;
+    }
+}
+.buju{
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    h2{
+        color: orangered;
+    }
+}
+.bym{
+    background-color: black;
+    color: aqua;
+}
+.leg{
+    background-color: black;
+    h3{
+        color: aqua;
+    }
+    color: white;
+}
+.class-containter{
+    background-color: aqua;
+    border-radius: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    img{
+        border-radius: 100px;
+    }
+}  
 .osh{
     flex: 1;
-    border: 1px cornflowerblue;
-    border-radius: 25px;
 
 }
 .buss{
     flex: 1;
-    border: 1px cornflowerblue;
-    border-radius: 25px;
-
 }
 .bizz{
     flex: 1;
-    border-radius: 25px;
-    border: 1px cornflowerblue;
+
+
 }
-.boo{
-text-align: center;
-}
+
