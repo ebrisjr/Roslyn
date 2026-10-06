@@ -1,70 +1,62 @@
-/* =======================================================
+/* ============================================================
    ROSLYN - THE PET COMMUNICATOR
    One stylesheet for the whole website:
-   - index.html  (landing page)
-   - main.html   (booking page)
+   - index.html    (landing page)
+   - main.html     (booking page)
    - p1/p2/p3.html (course pages)
-   ======================================================= */
 
-/* ---------- 1. RESET ---------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   HOW TO READ THIS FILE
+   - Numbered dividers split it into sections.
+   - Small rules are written on ONE line to keep the file short.
+   - Bigger rules are spread over several lines with easy comments.
+   - Plain flat CSS only: no variables, no nesting, literal colors.
+   ============================================================ */
 
-/* ---------- 2. BASIC PAGE STYLES ---------- */
+/* ---------- 1. GLOBAL STYLES (reset + base) ---------- */
+
+/* The star selector touches EVERY element on the page.
+   It clears the browser's built-in spacing so we start from zero. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Body = the look of the whole page */
 body {
-    background-color: #FDFBF7;
-    color: #1E293B;
-    font-family: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    background-color: #FDFBF7;   /* soft cream background */
+    color: #1E293B;              /* warm dark charcoal for text */
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif; /* clean sans-serif font stack */
+    font-size: 16px;             /* base text size */
+    line-height: 1.6;            /* extra air between lines = easier reading */
 }
 
-h1 {
-    font-size: 30px;
-    line-height: 1.25;
-}
+/* Heading sizes, biggest to smallest (same line-height keeps them tidy) */
+h1 { font-size: 30px; line-height: 1.25; }
+h2 { font-size: 26px; line-height: 1.25; }
+h3 { font-size: 20px; line-height: 1.3; }
 
-h2 {
-    font-size: 26px;
-    line-height: 1.25;
-}
+p { color: #4A5568; }        /* softer grey-blue for paragraph text */
+p + p { margin-top: 14px; }  /* "+" means: only when a paragraph follows another paragraph */
 
-h3 {
-    font-size: 20px;
-    line-height: 1.3;
-}
+a { color: #E05A47; text-decoration: none; }  /* coral links with no underline */
+a:hover { text-decoration: underline; }        /* underline appears when the mouse is over */
 
-p {
-    color: #4A5568;
-}
-
-p + p {
-    margin-top: 14px;
-}
-
-a {
-    color: #E05A47;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* all pictures: never stretch, rounded corners, soft shadow */
+/* PICTURES - the golden rules that stop images breaking the layout:
+   max-width:100%  -> image is NEVER wider than its box (no overflow on phones)
+   height:auto     -> keeps the real shape (no stretching)
+   object-fit:cover -> fills the box and crops the sides neatly (never squashes) */
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.08);
+    display: block;        /* removes the tiny gap browsers give inline images */
+    max-width: 100%;       /* MOBILE SAFETY: never wider than the screen */
+    height: auto;          /* height follows width, so pictures keep their shape */
+    object-fit: cover;     /* crop instead of squashing when box and picture differ */
+    border-radius: 12px;   /* friendly rounded corners */
+    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.08); /* soft shadow = gentle depth */
 }
 
-/* ---------- 3. CONTAINER (centers the content) ---------- */
+/* ---------- 2. LAYOUT: CONTAINER + SECTIONS ---------- */
+
+/* The container wraps each section's content and centers it:
+   max-width:1200px -> never too wide on big monitors
+   margin:0 auto     -> equal space left/right = perfectly centered
+   padding:0 20px    -> keeps text away from the screen edges */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -72,32 +64,17 @@ img {
     padding: 0 20px;
 }
 
-.section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
+.section { padding-top: 60px; padding-bottom: 60px; } /* breathing room above and below a section */
 
-/* white sections with a thin line on top and bottom */
-.section-alt {
-    background-color: #FFFFFF;
-    border-top: 1px solid #ECE5D9;
-    border-bottom: 1px solid #ECE5D9;
-}
+/* Alternate white sections with a thin line on top and bottom */
+.section-alt { background-color: #FFFFFF; border-top: 1px solid #ECE5D9; border-bottom: 1px solid #ECE5D9; }
 
-.section-head {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    text-align: center;
-}
+/* Centered heading block used at the top of most sections */
+.section-head { max-width: 700px; margin: 0 auto 40px auto; text-align: center; }
+.section-head h2 { color: #1E293B; }
+.section-head p { margin-top: 12px; }
 
-.section-head h2 {
-    color: #1E293B;
-}
-
-.section-head p {
-    margin-top: 12px;
-}
-
+/* Small gold uppercase label above a heading ("eyebrow" text) */
 .eyebrow {
     display: inline-block;
     margin-bottom: 10px;
@@ -108,103 +85,76 @@ img {
     text-transform: uppercase;
 }
 
-.lead {
-    font-size: 18px;
-}
+.lead { font-size: 18px; }   /* slightly bigger intro text */
+.note { margin-top: 20px; color: #6B7280; font-size: 15px; } /* small grey helper text */
 
-.note {
-    margin-top: 20px;
-    color: #6B7280;
-    font-size: 15px;
-}
+/* Helper that centers a button in the middle of a section */
+.center { margin-top: 40px; text-align: center; }
 
-/* used to center buttons in the middle of a section */
-.center {
-    margin-top: 40px;
-    text-align: center;
-}
+/* ---------- 3. CARDS (steps, prices, testimonials, courses) ---------- */
 
-/* ---------- 4. CARDS (steps, prices, testimonials, courses) ---------- */
-.card {
-    background-color: #FFFFFF;
-    border: 1px solid #ECE5D9;
-    border-radius: 16px;
-    box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
-}
+/* One shared card look: white box, thin border, rounded corners, soft shadow */
+.card { background-color: #FFFFFF; border: 1px solid #ECE5D9; border-radius: 16px; box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07); }
 
-/* ---------- 5. BUTTONS ---------- */
+/* ---------- 4. BUTTONS ---------- */
+
+/* Every button on the site starts here.
+   padding:12px 24px -> a comfortable, finger-friendly tap target (important on phones) */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
+    display: inline-block;   /* flows like text so it sits nicely next to other elements */
+    padding: 12px 24px;      /* roomy click/tap area */
+    border: none;            /* no outline - each button type adds its own color */
+    border-radius: 8px;      /* slightly rounded corners */
     font-size: 16px;
-    font-weight: bold;
+    font-weight: bold;       /* bold text */
     line-height: 1.4;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.25s;
+    text-align: center;      /* text centered inside the button */
+    text-decoration: none;   /* no underline on button text */
+    cursor: pointer;         /* mouse changes to a pointing hand */
+    transition: 0.25s;       /* smooth quarter-second change on hover */
 }
+.btn:hover { text-decoration: none; } /* stops the normal link underline from showing */
 
-.btn:hover {
-    text-decoration: none;
-}
-
-/* main call to action: "Schedule Here" / "Get Started" */
+/* MAIN CALL TO ACTION: "Schedule Here" / "Get Started" */
 .btn-primary {
-    background-color: #E05A47;
-    color: #FFFFFF;
+    background-color: #E05A47; /* terracotta / coral background */
+    color: #FFFFFF;            /* white text (bold + centered come from .btn above) */
     border: none;
-    box-shadow: 0 6px 16px rgba(224, 90, 71, 0.28);
+    box-shadow: 0 6px 16px rgba(224, 90, 71, 0.28); /* soft coral glow under the button */
 }
-
 .btn-primary:hover {
-    background-color: #EA580C;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 26px rgba(234, 88, 12, 0.35);
+    background-color: #EA580C;                       /* background tint shifts on hover */
+    transform: translateY(-2px) scale(1.02);         /* lifts up and grows a touch = "elevation" */
+    box-shadow: 0 12px 26px rgba(234, 88, 12, 0.35); /* bigger shadow while it is lifted */
 }
 
-/* outline button (white background, coral border) */
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid #E05A47;
-    color: #E05A47;
-    padding: 10px 22px;
-}
+/* Outline button: transparent with a coral border */
+.btn-outline { background-color: transparent; border: 2px solid #E05A47; color: #E05A47; padding: 10px 22px; }
+.btn-outline:hover { background-color: #FDF1EE; } /* very light coral fill on hover */
 
-.btn-outline:hover {
-    background-color: #FDF1EE;
-}
+/* White button used on top of the coral call-to-action band */
+.btn-light { background-color: #FFFFFF; color: #E05A47; }
+.btn-light:hover { background-color: #FFF7EC; } /* warm cream on hover */
 
-/* white button, used on the coral call to action band */
-.btn-light {
-    background-color: #FFFFFF;
-    color: #E05A47;
-}
+.btn-lg { padding: 14px 32px; }         /* bigger version of the button */
+.btn-block { display: block; width: 100%; } /* stretches the button to full width */
 
-.btn-light:hover {
-    background-color: #FFF7EC;
-}
+/* ---------- 5. HEADER / NAVBAR (.qqq) ---------- */
 
-.btn-lg {
-    padding: 14px 32px;
-}
-
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-/* ---------- 6. HEADER / NAVBAR (.qqq) ---------- */
+/* position:sticky keeps the bar pinned to the top while you scroll */
 .qqq {
     position: sticky;
-    top: 0;
-    z-index: 50;
+    top: 0;              /* sticks to the very top edge of the window */
+    z-index: 50;         /* higher number = draws ABOVE the page content */
     background-color: #FDFBF7;
-    border-bottom: 1px solid #ECE5D9;
+    border-bottom: 1px solid #ECE5D9; /* thin line under the bar */
 }
 
+/* The navbar is a flex row holding: brand / menu links / button
+   display:flex          -> puts the three items in one line
+   justify-content:space-between -> pushes them to the two edges
+   align-items:center    -> lines them up vertically
+   flex-wrap:wrap        -> they wrap onto a second line if space runs out */
 .nav {
     display: flex;
     align-items: center;
@@ -214,113 +164,57 @@ img {
     min-height: 68px;
 }
 
-.brand {
-    color: #1E293B;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-}
+.brand { color: #1E293B; font-size: 20px; font-weight: bold; text-decoration: none; } /* brand name on the left */
+.brand:hover { color: #E05A47; text-decoration: none; } /* turns coral on hover */
+.brand span { color: #D97706; font-weight: normal; }    /* the "| Pet Communicator" part in gold */
 
-.brand:hover {
-    color: #E05A47;
-    text-decoration: none;
-}
+/* Menu links are HIDDEN on phones (a media query shows them on desktop) */
+.nav-links { display: none; }
+.nav-links a { color: #4A5568; font-size: 15px; font-weight: bold; }
+.nav-links a:hover { color: #E05A47; text-decoration: none; }
 
-.brand span {
-    color: #D97706;
-    font-weight: normal;
-}
+/* ---------- 6. HERO SECTION (.second) ---------- */
 
-/* the menu links are hidden on phones, we show them on desktop */
-.nav-links {
-    display: none;
-}
+/* The big intro block at the top of the landing page.
+   overflow:hidden clips anything that would stick out sideways. */
+.second { padding-top: 50px; padding-bottom: 50px; background-color: #FDFBF7; overflow: hidden; }
 
-.nav-links a {
-    color: #4A5568;
-    font-size: 15px;
-    font-weight: bold;
-}
+/* display:flex + flex-direction:column = text and photo stack top-to-bottom on phones.
+   A media query near the bottom flips this into a side-by-side row on desktop.
+   gap:40px = the space between the text and the photo. */
+.second .container { display: flex; flex-direction: column; gap: 40px; }
+.second h1 { margin-bottom: 18px; color: #1E293B; }
+.second .lead { color: #1E293B; font-weight: 600; } /* intro line reads a bit stronger */
 
-.nav-links a:hover {
-    color: #E05A47;
-    text-decoration: none;
-}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; } /* the two CTA buttons; wrap lets them stack */
+.hero-points { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }  /* row of small info pills */
 
-/* ---------- 7. HERO (.second) ---------- */
-.second {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: #FDFBF7;
-    overflow: hidden;
-}
+/* Each pill: white chip with a thin border and rounded ends */
+.hero-points li { padding: 6px 14px; background-color: #FFFFFF; border: 1px solid #ECE5D9; border-radius: 20px; color: #4A5568; font-size: 14px; font-weight: bold; }
 
-/* text on the left, photo on the right (stacked on phones) */
-.second .container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
+/* ---------- 7. IMAGE BLOCK (.min) ---------- */
 
-.second h1 {
-    margin-bottom: 18px;
-    color: #1E293B;
-}
-
-.second .lead {
-    color: #1E293B;
-    font-weight: 600;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 28px;
-}
-
-.hero-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 28px;
-}
-
-.hero-points li {
-    padding: 6px 14px;
-    background-color: #FFFFFF;
-    border: 1px solid #ECE5D9;
-    border-radius: 20px;
-    color: #4A5568;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* ---------- 8. IMAGE BLOCK (.min) ---------- */
+/* Photos inside a white frame with a soft shadow (fixed height keeps rows even) */
 .min img {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 6px solid #FFFFFF;
-    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
+    width: 100%;         /* fills its column */
+    height: 360px;       /* fixed height so cards line up */
+    object-fit: cover;   /* crops the photo instead of stretching it */
+    border-radius: 12px; /* rounded corners */
+    border: 6px solid #FFFFFF;                /* white frame around the photo */
+    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10); /* deep, soft shadow */
 }
 
-/* ---------- 9. TEXT BLOCK (.text-container) ---------- */
-.text-container h2 {
-    margin-bottom: 16px;
-    color: #1E293B;
-}
+/* ---------- 8. TEXT BLOCK (.text-container) ---------- */
 
-.text-container .btn {
-    margin-top: 26px;
-}
+.text-container h2 { margin-bottom: 16px; color: #1E293B; } /* heading spacing inside text blocks */
+.text-container .btn { margin-top: 26px; }                  /* pushes the button away from the text */
+.text-container .checklist { margin-top: 14px; }
 
-.text-container .checklist {
-    margin-top: 14px;
-}
+/* ---------- 9. HOW IT WORKS (.third) ---------- */
 
-/* ---------- 10. HOW IT WORKS (.third) ---------- */
+/* The 5 steps: a vertical list with space between each card.
+   flex-direction:column = the steps pile up top-to-bottom.
+   max-width + margin:0 auto keeps the list centered and easy to read. */
 .third ol {
     display: flex;
     flex-direction: column;
@@ -329,97 +223,53 @@ img {
     margin: 0 auto;
 }
 
-/* every step is a card with a round number */
-.third .card {
-    display: flex;
-    gap: 18px;
-    padding: 22px;
-    transition: 0.25s;
-}
+/* Each step is a card holding a round number and its text */
+.third .card { display: flex; gap: 18px; padding: 22px; transition: 0.25s; }
+.third .card:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10); } /* card lifts on hover */
+.third .card > div { flex: 1; } /* the text column takes all the leftover width */
 
-.third .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
-}
-
-.third .card > div {
-    flex: 1;
-}
-
+/* The round coral number: 1 to 5.
+   line-height equals the height, which centers the digit vertically. */
 .step-num {
-    flex: 0 0 auto;
+    flex: 0 0 auto;      /* never squeezes or grows */
     width: 44px;
     height: 44px;
     background-color: #E05A47;
     color: #FFFFFF;
-    border-radius: 50%;
+    border-radius: 50%;  /* 50% makes a perfect circle */
     font-size: 18px;
     font-weight: bold;
-    text-align: center;
+    text-align: center;  /* centers the digit horizontally */
     line-height: 44px;
 }
 
-.third .card h3 {
-    margin-bottom: 5px;
-    color: #1E293B;
-}
+.third .card h3 { margin-bottom: 5px; color: #1E293B; }
+.third .card p { font-size: 15px; }
 
-.third .card p {
-    font-size: 15px;
-}
+/* ---------- 10. SESSION PRICING (.vizz) ---------- */
 
-/* ---------- 11. SESSION PRICING (.vizz) ---------- */
-.pricing-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
+/* The 3 price cards: stacked on phones, one row on desktop (see media query) */
+.pricing-grid { display: flex; flex-direction: column; gap: 24px; }
 
-.vizz .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 30px 26px;
-}
+/* position:relative lets the "Best value" badge anchor to this card */
+.vizz .card { position: relative; display: flex; flex-direction: column; padding: 30px 26px; }
+.vizz .card h3 { color: #1E293B; }
 
-.vizz .card h3 {
-    color: #1E293B;
-}
+.price-meta { margin-top: 5px; color: #6B7280; font-size: 14px; } /* small line: pets + minutes */
+.price { margin-top: 16px; margin-bottom: 16px; }                 /* space around the price */
 
-.price-meta {
-    margin-top: 5px;
-    color: #6B7280;
-    font-size: 14px;
-}
+/* The big price number: $149 / $299 / $399 */
+.price .amount { color: #1E293B; font-size: 42px; font-weight: bold; }
+.price s { margin-left: 8px; color: #6B7280; font-size: 18px; } /* the crossed-out old price */
 
-.price {
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
+/* margin-top:auto pushes the button to the very bottom so all cards match height */
+.vizz .card .btn { margin-top: auto; }
 
-/* the big price number: $149 / $299 / $399 */
-.price .amount {
-    color: #1E293B;
-    font-size: 42px;
-    font-weight: bold;
-}
+/* The highlighted card (gold border, warm background) */
+.featured { border: 2px solid #D97706; background-color: #FFF7EC; }
 
-.price s {
-    margin-left: 8px;
-    color: #6B7280;
-    font-size: 18px;
-}
-
-.vizz .card .btn {
-    margin-top: auto;
-}
-
-/* the highlighted card is gold */
-.featured {
-    border: 2px solid #D97706;
-    background-color: #FFF7EC;
-}
-
+/* "Best value" flag hanging on the top corner of a card.
+   position:absolute + top/right = pins it to that corner. */
 .badge {
     position: absolute;
     top: -13px;
@@ -433,21 +283,20 @@ img {
     text-transform: uppercase;
 }
 
-/* the list of features with check marks */
-.checklist {
-    margin-top: 10px;
-    margin-bottom: 26px;
-}
+.checklist { margin-top: 10px; margin-bottom: 26px; } /* the feature list under each price */
 
+/* Each list item gets extra space on the left for the check mark */
 .checklist li {
-    position: relative;
-    padding-left: 28px;
+    position: relative; /* needed so the check mark can be pinned to the left */
+    padding-left: 28px;  /* room for the check mark */
     margin-top: 10px;
     color: #4A5568;
     font-size: 15px;
-    list-style: none;
+    list-style: none;    /* removes the default bullet */
 }
 
+/* Draws the gold check mark using the ::before "fake" element.
+   \2713 is the check character; left:0 puts it in the empty space. */
 .checklist li:before {
     content: "\2713";
     position: absolute;
@@ -457,16 +306,19 @@ img {
     font-weight: bold;
 }
 
-/* ---------- 12. EMERGENCY SESSION (.fourth) ---------- */
+/* ---------- 11. EMERGENCY SESSION (.fourth) ---------- */
+
+/* Warm warning box: cream background, thick coral line on the left */
 .fourth {
     padding: 36px 30px;
     background-color: #FFF7EC;
     border: 1px solid #F6E0C0;
-    border-left: 6px solid #E05A47;
+    border-left: 6px solid #E05A47; /* the thick colored stripe */
     border-radius: 16px;
     box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
 }
 
+/* Small coral "pill" label at the top of the box */
 .emergency-tag {
     display: inline-block;
     margin-bottom: 12px;
@@ -480,33 +332,15 @@ img {
     text-transform: uppercase;
 }
 
-.fourth h2 {
-    margin-bottom: 14px;
-    color: #1E293B;
-}
+.fourth h2 { margin-bottom: 14px; color: #1E293B; }
+.fourth .lead { max-width: 800px; color: #1E293B; font-weight: bold; } /* max-width stops the line getting too long */
 
-.fourth .lead {
-    max-width: 800px;
-    color: #1E293B;
-    font-weight: bold;
-}
+/* The two explanation columns: stacked on phones, side by side on desktop */
+.emergency-grid { display: flex; flex-direction: column; gap: 24px; margin-top: 26px; }
+.emergency-grid h3 { margin-bottom: 8px; color: #D97706; }
+.emergency-grid p { font-size: 15px; }
 
-.emergency-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-top: 26px;
-}
-
-.emergency-grid h3 {
-    margin-bottom: 8px;
-    color: #D97706;
-}
-
-.emergency-grid p {
-    font-size: 15px;
-}
-
+/* The bottom row of the box (price + email link), separated by a dashed line */
 .emergency-foot {
     display: flex;
     flex-direction: column;
@@ -516,181 +350,80 @@ img {
     border-top: 1px dashed #E7CBA4;
 }
 
-.emergency-price {
-    color: #E05A47;
-    font-size: 30px;
-    font-weight: bold;
-}
+.emergency-price { color: #E05A47; font-size: 30px; font-weight: bold; } /* the $347 price */
+.emergency-price span { color: #4A5568; font-size: 16px; font-weight: normal; } /* the "30 minutes" part */
+.emergency-cta { color: #1E293B; font-size: 15px; }
+.emergency-cta a { font-weight: bold; text-decoration: underline; } /* the email link stands out */
 
-.emergency-price span {
-    color: #4A5568;
-    font-size: 16px;
-    font-weight: normal;
-}
+/* ---------- 12. TESTIMONIALS (.fifth header, .sixth cards) ---------- */
 
-.emergency-cta {
-    color: #1E293B;
-    font-size: 15px;
-}
+/* The review cards: stacked on phones, 3 in a row on desktop */
+.sixth { display: flex; flex-direction: column; gap: 24px; }
+.sixth .card { padding: 26px; background-color: #FDFBF7; } /* slightly cream card inside the white section */
 
-.emergency-cta a {
-    font-weight: bold;
-    text-decoration: underline;
-}
+.stars { margin-bottom: 14px; color: #D97706; font-size: 20px; letter-spacing: 3px; } /* gold 5-star rating */
+.sixth blockquote p { color: #4A5568; font-size: 15px; font-style: italic; } /* the quoted feedback */
 
-/* ---------- 13. TESTIMONIALS (.fifth header, .sixth cards) ---------- */
-.sixth {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.sixth .card {
-    padding: 26px;
-    background-color: #FDFBF7;
-}
-
-.stars {
-    margin-bottom: 14px;
-    color: #D97706;
-    font-size: 20px;
-    letter-spacing: 3px;
-}
-
-.sixth blockquote p {
-    color: #4A5568;
-    font-size: 15px;
-    font-style: italic;
-}
-
+/* The pet photo + name row at the bottom of a review */
 .card figcaption {
     display: flex;
-    align-items: center;
+    align-items: center; /* vertically centers photo and text */
     gap: 14px;
     margin-top: 22px;
     padding-top: 18px;
-    border-top: 1px solid #ECE5D9;
+    border-top: 1px solid #ECE5D9; /* thin divider above the name */
 }
 
-/* small round photo of the pet */
-.card figcaption img {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 2px solid #FFFFFF;
-}
+.card figcaption img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid #FFFFFF; } /* 50% = round avatar */
+.card figcaption strong { display: block; color: #1E293B; font-size: 15px; } /* pet + owner name */
+.card figcaption small { color: #6B7280; font-size: 13px; } /* small grey "Dog session" label */
 
-.card figcaption strong {
-    display: block;
-    color: #1E293B;
-    font-size: 15px;
-}
+/* ---------- 13. COURSES (.first) ---------- */
 
-.card figcaption small {
-    color: #6B7280;
-    font-size: 13px;
-}
+/* The 3 course cards: stacked on phones, one row on desktop */
+.first { display: flex; flex-direction: column; gap: 24px; }
 
-/* ---------- 14. COURSES (.first) ---------- */
-.first {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
+.first .card { overflow: hidden; transition: 0.25s; } /* overflow hides the image corners inside the card */
+.first .card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10); } /* card lifts on hover */
+.first .card img { width: 100%; height: 190px; border-radius: 0; } /* square top edge so it meets the card cleanly */
 
-.first .card {
-    overflow: hidden;
-    transition: 0.25s;
-}
+.course-body { padding: 24px; }                          /* text area under the photo */
+.course-body h3 { margin-bottom: 8px; color: #1E293B; }
+.course-body p { font-size: 15px; }
+.course-body .btn { margin-top: 18px; }                  /* space above the Get Started button */
 
-.first .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
-}
+/* ---------- 14. GIFT / ABOUT / PODCAST (.seven .eight .nine) ---------- */
 
-.first .card img {
-    width: 100%;
-    height: 190px;
-    border-radius: 0;
-}
-
-.course-body {
-    padding: 24px;
-}
-
-.course-body h3 {
-    margin-bottom: 8px;
-    color: #1E293B;
-}
-
-.course-body p {
-    font-size: 15px;
-}
-
-.course-body .btn {
-    margin-top: 18px;
-}
-
-/* ---------- 15. GIFT / ABOUT / PODCAST (.seven .eight .nine) ---------- */
-/* the three sections all use the same layout:
-   an image block (.min) and a text block (.text-container) */
+/* These three sections share one layout: an image block (.min) and a
+   text block (.text-container). Column on phones, row on desktop. */
 .seven .container,
 .eight .container,
-.nine .container {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-}
+.nine .container { display: flex; flex-direction: column; gap: 36px; }
 
-/* ---------- 16. FINAL CALL TO ACTION BAND ---------- */
+/* ---------- 15. FINAL CALL TO ACTION BAND ---------- */
+
+/* Full-width coral banner near the bottom of the page */
 .cta-band {
     padding-top: 60px;
     padding-bottom: 60px;
     background-color: #E05A47;
-    color: #FFFFFF;
-    text-align: center;
+    color: #FFFFFF;       /* white text on coral */
+    text-align: center;   /* everything centered */
 }
 
-.cta-inner {
-    max-width: 640px;
-    margin: 0 auto;
-}
+.cta-inner { max-width: 640px; margin: 0 auto; } /* keeps the message a comfortable reading width */
+.cta-band h2 { margin-bottom: 12px; color: #FFFFFF; }
+.cta-band p { margin-bottom: 26px; color: #FFFFFF; } /* p is forced white (paragraphs have their own gray) */
 
-.cta-band h2 {
-    margin-bottom: 12px;
-    color: #FFFFFF;
-}
+/* ---------- 16. FOOTER ---------- */
 
-.cta-band p {
-    margin-bottom: 26px;
-    color: #FFFFFF;
-}
+.site-footer { background-color: #1E293B; color: #CBD5E1; padding-top: 45px; } /* dark charcoal footer */
 
-/* ---------- 17. FOOTER ---------- */
-.site-footer {
-    background-color: #1E293B;
-    color: #CBD5E1;
-    padding-top: 45px;
-}
+/* Footer columns: stacked on phones, 3 in a row on desktop */
+.footer-grid { display: flex; flex-direction: column; gap: 30px; padding-bottom: 36px; }
 
-.footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-bottom: 36px;
-}
-
-.footer-brand {
-    margin-bottom: 8px;
-    color: #FFFFFF;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.footer-brand span {
-    color: #D97706;
-    font-weight: normal;
-}
+.footer-brand { margin-bottom: 8px; color: #FFFFFF; font-size: 20px; font-weight: bold; }
+.footer-brand span { color: #D97706; font-weight: normal; } /* the gold "| Pet Communicator" */
 
 .footer-title {
     margin-bottom: 12px;
@@ -701,57 +434,30 @@ img {
     text-transform: uppercase;
 }
 
-.footer-links li {
-    margin-top: 8px;
-}
-
-.footer-links a {
-    color: #CBD5E1;
-    font-size: 15px;
-}
-
-.footer-links a:hover {
-    color: #D97706;
-}
+.footer-links li { margin-top: 8px; }
+.footer-links a { color: #CBD5E1; font-size: 15px; }
+.footer-links a:hover { color: #D97706; } /* links turn gold on hover */
 
 .footer-bottom {
     padding-top: 18px;
     padding-bottom: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.12); /* faint white line */
     color: #94A3B8;
     font-size: 14px;
     text-align: center;
 }
 
-/* =======================================================
-   18. BOOKING PAGE (main.html)
-   ======================================================= */
-.logo {
-    padding: 20px;
-    text-align: center;
-}
+/* ---------- 17. BOOKING PAGE (main.html) ---------- */
 
-.logo img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
+.logo { padding: 20px; text-align: center; }
+.logo img { width: 150px; height: 150px; border-radius: 50%; } /* 50% = circular logo */
+.byg { text-align: center; padding: 20px; }
+.byg img { display: inline-block; width: 300px; height: 300px; }
 
-.byg {
-    text-align: center;
-    padding: 20px;
-}
-
-.byg img {
-    display: inline-block;
-    width: 300px;
-    height: 300px;
-}
-
-/* white card with the "please read before booking" text */
+/* White card with the "please read before booking" text */
 .buju {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 20px auto; /* centered on the page */
     padding: 30px;
     background-color: #FFFFFF;
     border: 1px solid #ECE5D9;
@@ -759,21 +465,16 @@ img {
     box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
 }
 
-.buju h2 {
-    margin-bottom: 15px;
-    color: #E05A47;
-}
+.buju h2 { margin-bottom: 15px; color: #E05A47; } /* coral heading */
+.buju p { margin-top: 12px; }
 
-.buju p {
-    margin-top: 12px;
-}
-
-/* row with the calendar title, search box and the 3 price cards */
+/* Row with the calendar title, search box and the 3 price cards.
+   flex-wrap:wrap = items move to a new line when there is not enough room. */
 .class-containter {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    align-items: stretch;
+    align-items: stretch; /* cards stretch to equal height */
     max-width: 1200px;
     margin: 30px auto;
     padding: 25px;
@@ -782,9 +483,7 @@ img {
     border-radius: 25px;
 }
 
-.boo h3 {
-    color: #1E293B;
-}
+.boo h3 { color: #1E293B; }
 
 .search-box input {
     width: 220px;
@@ -794,84 +493,41 @@ img {
     font-size: 15px;
 }
 
-/* the three booking cards */
+/* The three booking cards share the same look.
+   flex:1 1 260px = grow to fill space, but never shrink below 260px. */
 .osh,
 .buss,
-.bizz {
-    flex: 1 1 260px;
-    padding: 20px;
-    background-color: #FDFBF7;
-    border: 1px solid #ECE5D9;
-    border-radius: 16px;
-}
+.bizz { flex: 1 1 260px; padding: 20px; background-color: #FDFBF7; border: 1px solid #ECE5D9; border-radius: 16px; }
 
 .osh img,
 .buss img,
-.bizz img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
+.bizz img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 15px; } /* round thumbnails */
 
-.osh h3,
-.osh h4,
-.buss h3,
-.bizz h3 {
-    margin-bottom: 10px;
-    color: #1E293B;
-}
+.osh h3, .osh h4, .buss h3, .bizz h3 { margin-bottom: 10px; color: #1E293B; }
+.osh p, .buss p, .bizz p { margin-bottom: 15px; font-size: 15px; }
 
-.osh p,
-.buss p,
-.bizz p {
-    margin-bottom: 15px;
-    font-size: 15px;
-}
-
-/* price row: 30 mins ..... $149 */
+/* Price row: "30 mins" on the left, price on the right */
 .button,
 .buq,
 .uzz {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* pushes one item left, the other right */
     padding: 12px 16px;
     background-color: #FFF7EC;
     border: 1px solid #F6E0C0;
     border-radius: 8px;
 }
 
-.button span,
-.buq span,
-.uzz span {
-    color: #6B7280;
-    font-size: 14px;
-}
+.button span, .buq span, .uzz span { color: #6B7280; font-size: 14px; } /* the small gray label */
+.button strong, .buq strong, .uzz strong { color: #E05A47; font-size: 20px; } /* the coral price */
 
-.button strong,
-.buq strong,
-.uzz strong {
-    color: #E05A47;
-    font-size: 20px;
-}
+/* Testimonials heading on the booking page */
+.bym { max-width: 1200px; margin: 40px auto 0 auto; padding: 0 20px; }
+.bym h3 { color: #D97706; } /* gold label */
+.bym h1 { color: #1E293B; }
 
-/* testimonials header on the booking page */
-.bym {
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    padding: 0 20px;
-}
-
-.bym h3 {
-    color: #D97706;
-}
-
-.bym h1 {
-    color: #1E293B;
-}
-
-/* testimonials cards on the booking page */
+/* Testimonial cards on the booking page: a white panel holding 3 cards */
 .leg {
     display: flex;
     flex-wrap: wrap;
@@ -884,80 +540,29 @@ img {
     border-radius: 25px;
 }
 
+/* The three review cards share this look and wrap onto new lines when narrow */
 .firstt,
 .secc,
-.thirdd {
-    flex: 1 1 280px;
-    padding: 22px;
-    background-color: #FDFBF7;
-    border: 1px solid #ECE5D9;
-    border-radius: 16px;
-}
+.thirdd { flex: 1 1 280px; padding: 22px; background-color: #FDFBF7; border: 1px solid #ECE5D9; border-radius: 16px; }
 
-.firstt img,
-.secc img,
-.thirdd img {
-    width: 100%;
-    height: 220px;
-    margin-bottom: 15px;
-}
+.firstt img, .secc img, .thirdd img { width: 100%; height: 220px; margin-bottom: 15px; }
+.firstt h3, .secc h3, .thirdd h3 { margin-bottom: 10px; color: #1E293B; }
+.firstt h4, .secc h4, .thirdd h4 { margin-top: 15px; color: #D97706; } /* gold reviewer name */
 
-.firstt h3,
-.secc h3,
-.thirdd h3 {
-    margin-bottom: 10px;
-    color: #1E293B;
-}
+/* ---------- 18. COURSE PAGES (p1.html, p2.html, p3.html) ---------- */
 
-.firstt h4,
-.secc h4,
-.thirdd h4 {
-    margin-top: 15px;
-    color: #D97706;
-}
+.osc { max-width: 900px; margin: 0 auto; padding: 40px 20px; } /* centers the course page content */
+.osc img { margin: 0 auto 20px auto; width: 350px; height: 200px; } /* centered course image */
+.osc h2, .osc h3 { margin-bottom: 15px; color: #1E293B; text-align: center; } /* centered title */
+.osc p { margin-top: 12px; }
+.osc ul { margin-top: 15px; margin-left: 25px; list-style: disc; } /* normal bullet dots for the list */
+.osc li { margin-top: 8px; color: #4A5568; }
 
-/* =======================================================
-   19. COURSE PAGES (p1.html, p2.html, p3.html)
-   ======================================================= */
-.osc {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.osc img {
-    margin: 0 auto 20px auto;
-    width: 350px;
-    height: 200px;
-}
-
-.osc h2,
-.osc h3 {
-    margin-bottom: 15px;
-    color: #1E293B;
-    text-align: center;
-}
-
-.osc p {
-    margin-top: 12px;
-}
-
-.osc ul {
-    margin-top: 15px;
-    margin-left: 25px;
-    list-style: disc;
-}
-
-.osc li {
-    margin-top: 8px;
-    color: #4A5568;
-}
-
-/* the order form on the course pages */
+/* The order form: a white card, centered, never wider than 420px */
 form {
     width: 100%;
-    max-width: 420px;
-    margin: 40px auto;
+    max-width: 420px; /* keeps the form narrow on big screens */
+    margin: 40px auto; /* centered horizontally */
     padding: 40px 30px;
     background-color: #FFFFFF;
     color: #1E293B;
@@ -966,13 +571,10 @@ form {
     box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
 }
 
-form label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #1E293B;
-}
+/* display:block makes each label sit on its own line above its field */
+form label { display: block; margin-top: 15px; font-weight: bold; color: #1E293B; }
 
+/* Fields fill the whole form width (works nicely on small phones) */
 form input {
     width: 100%;
     margin-top: 6px;
@@ -982,12 +584,9 @@ form input {
     font-size: 15px;
 }
 
-form h3 {
-    margin-top: 20px;
-    color: #1E293B;
-}
+form h3 { margin-top: 20px; color: #1E293B; }
 
-/* checkout button on the course pages */
+/* Checkout button on the course pages (matches the main coral button) */
 .joze {
     width: 190px;
     height: 40px;
@@ -1001,61 +600,63 @@ form h3 {
     cursor: pointer;
     transition: 0.25s;
 }
+.joze:hover { background-color: #EA580C; transform: scale(1.02); } /* tint shift + tiny grow */
 
-.joze:hover {
-    background-color: #EA580C;
-    transform: scale(1.02);
-}
+/* ============================================================
+   19. MOBILE RESPONSIVE STYLES
+   Everything below only applies to small screens. This is what
+   makes the mobile view stack cleanly and stay easy to tap.
+   ============================================================ */
 
-/* =======================================================
-   20. RESPONSIVE (phones and tablets)
-   ======================================================= */
-
-/* phones: 768px and smaller */
+/* @media (max-width: 768px) = these rules switch ON when the screen
+   is 768px wide or smaller (phones and small tablets). */
 @media (max-width: 768px) {
+    /* Brand, links and button stack and center instead of sharing one row */
     .nav {
-        justify-content: center;
+        justify-content: center; /* moves items to the middle */
         text-align: center;
         padding-top: 12px;
         padding-bottom: 12px;
     }
 
-    .nav .btn {
-        width: 100%;
-    }
+    .nav .btn { width: 100%; } /* full-width button = a much easier tap target */
 
-    .min img {
-        height: 320px;
-    }
+    .min img { height: 320px; } /* shorter photos so less scrolling on phones */
 
-    /* steps stack on top of each other */
+    /* flex-direction:column makes each step stack on top of the next one
+       (instead of sitting side by side), and trims the padding a little. */
     .third .card {
         flex-direction: column;
         gap: 12px;
         padding: 20px;
     }
 
+    /* Emergency price/email stack vertically and align left */
     .emergency-foot {
         flex-direction: column;
         align-items: flex-start;
     }
 
+    /* Booking cards on main.html also stack instead of sitting in a row */
     .class-containter,
-    .leg {
-        flex-direction: column;
-    }
+    .leg { flex-direction: column; }
 }
 
-/* small phones: 599px and smaller - center the call to action buttons */
+/* @media (max-width: 599px) = small phones only.
+   Here we center every call to action and make buttons full width,
+   which improves thumb-friendly touch targets. */
 @media (max-width: 599px) {
+    /* Centers the button rows themselves */
     .hero-actions,
     .center {
-        justify-content: center;
+        justify-content: center; /* flex items sit in the middle */
         text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
 
+    /* Buttons become full-width blocks (capped at 340px) and center themselves:
+       big, obvious, easy-to-tap targets on small screens. */
     .hero-actions .btn,
     .center .btn,
     .text-container .btn {
@@ -1066,97 +667,72 @@ form h3 {
         margin-right: auto;
     }
 
-    .hero-points {
-        justify-content: center;
-    }
+    .hero-points { justify-content: center; } /* pills line up in the middle */
 }
 
-/* =======================================================
-   21. RESPONSIVE (desktop)
-   ======================================================= */
+/* ============================================================
+   20. DESKTOP RESPONSIVE STYLES
+   These rules switch ON for bigger screens and turn the stacked
+   mobile layout back into side-by-side rows and grids.
+   ============================================================ */
 
-/* tablets and desktop: 768px and bigger */
+/* @media (min-width: 768px) = tablets and desktop computers */
 @media (min-width: 768px) {
-    h1 {
-        font-size: 44px;
-    }
+    h1 { font-size: 44px; } /* bigger headings on large screens */
+    h2 { font-size: 34px; }
 
-    h2 {
-        font-size: 34px;
-    }
+    .nav { flex-wrap: nowrap; } /* one single row, never wraps */
 
-    .nav {
-        flex-wrap: nowrap;
-    }
-
+    /* Shows the menu links (they are display:none on phones) */
     .nav-links {
         display: flex;
         align-items: center;
         gap: 24px;
-        margin-left: auto;
+        margin-left: auto;   /* pushes the links toward the right side */
         margin-right: 24px;
     }
 
-    /* hero side by side: text left, photo right */
+    /* HERO GOES SIDE BY SIDE: text on the left, photo on the right.
+       flex-direction:row switches the column back into a row. */
     .second .container {
         flex-direction: row;
-        align-items: center;
+        align-items: center; /* vertically centers text and photo */
         gap: 50px;
     }
 
-    .text-container {
-        flex: 1.1;
-    }
+    .text-container { flex: 1.1; } /* text column takes a little more space */
+    .min { flex: 0.9; }            /* photo column takes a little less */
 
-    .min {
-        flex: 0.9;
-    }
+    .min img { height: 420px; }      /* taller photos on desktop */
+    .second .min img { height: 480px; } /* the hero photo is the biggest one */
 
-    .min img {
-        height: 420px;
-    }
-
-    .second .min img {
-        height: 480px;
-    }
-
-    /* 3 price cards in one row */
+    /* 3 price cards sit in one row, each stretched to equal height */
     .pricing-grid {
         flex-direction: row;
         align-items: stretch;
     }
+    .vizz .card { flex: 1; } /* every price card gets an equal share */
 
-    .vizz .card {
-        flex: 1;
-    }
-
+    /* Emergency box splits into two columns */
     .emergency-grid {
         flex-direction: row;
         gap: 30px;
     }
-
-    .emergency-grid > div {
-        flex: 1;
-    }
+    .emergency-grid > div { flex: 1; } /* both columns share the width equally */
 
     .emergency-foot {
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; /* price on the left, email on the right */
     }
 
-    /* 3 testimonial cards in one row */
+    /* Testimonial and course cards become 3 columns in one row */
     .sixth,
-    .first {
-        flex-direction: row;
-    }
-
+    .first { flex-direction: row; }
     .sixth .card,
-    .first .card {
-        flex: 1;
-    }
+    .first .card { flex: 1; } /* each card takes one third of the width */
 
-    /* picture left, text right */
+    /* Gift / About / Podcast: photo next to the text */
     .seven .container,
     .eight .container,
     .nine .container {
@@ -1165,22 +741,14 @@ form h3 {
         gap: 50px;
     }
 
-    /* the "about" section puts the photo on the right */
-    .eight .container {
-        flex-direction: row-reverse;
-    }
+    .eight .container { flex-direction: row-reverse; } /* About page: photo on the RIGHT */
 
-    .footer-grid {
-        flex-direction: row;
-        gap: 50px;
-    }
-
-    .footer-grid > div:first-child {
-        flex: 2;
-    }
+    .footer-grid { flex-direction: row; gap: 50px; } /* footer columns side by side */
+    .footer-grid > div:first-child { flex: 2; }      /* intro column is twice as wide */
 }
 
-/* wide monitors: 1200px and bigger - keep everything centered */
+/* @media (min-width: 1200px) = wide desktop monitors.
+   Keeps the call to action perfectly centered on very big screens. */
 @media (min-width: 1200px) {
     .hero-actions,
     .center {
@@ -1190,11 +758,6 @@ form h3 {
         margin-right: auto;
     }
 
-    .hero-points {
-        justify-content: center;
-    }
-
-    .cta-inner {
-        margin: 0 auto;
-    }
+    .hero-points { justify-content: center; } /* pills stay centered */
+    .cta-inner { margin: 0 auto; }            /* the CTA message stays centered */
 }
