@@ -1,169 +1,1200 @@
+/* =======================================================
+   ROSLYN - THE PET COMMUNICATOR
+   One stylesheet for the whole website:
+   - index.html  (landing page)
+   - main.html   (booking page)
+   - p1/p2/p3.html (course pages)
+   ======================================================= */
+
+/* ---------- 1. RESET ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
-body{
-    background-color: black;
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.qqq{
-    background-color: #131034;
-    h2{
-        color: aqua;
-    }
-    h1{
-        color: orangered;
-    }
-    img{
-        border-radius: 100px;
-    }
 
+/* ---------- 2. BASIC PAGE STYLES ---------- */
+body {
+    background-color: #FDFBF7;
+    color: #1E293B;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
-.first{
-    background-color: #131034;
 
+h1 {
+    font-size: 30px;
+    line-height: 1.25;
 }
-.second{
-    background-color: #131034;
-    color: aqua;
-    h1{
-        color: orangered;
-    }
+
+h2 {
+    font-size: 26px;
+    line-height: 1.25;
 }
-.btn{
-    color: rgb(255, 255, 255);
-    background-color: orangered;
-    border-radius: 10px;
-    border-color: gold;
-    padding:10px auto;
-    margin: 10px auto;
-   width: 125px;
-   height: 35px;
-   align-items: center;
-    
+
+h3 {
+    font-size: 20px;
+    line-height: 1.3;
 }
-.btn:hover{
+
+p {
+    color: #4A5568;
+}
+
+p + p {
+    margin-top: 14px;
+}
+
+a {
+    color: #E05A47;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* all pictures: never stretch, rounded corners, soft shadow */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(30, 41, 59, 0.08);
+}
+
+/* ---------- 3. CONTAINER (centers the content) ---------- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* white sections with a thin line on top and bottom */
+.section-alt {
+    background-color: #FFFFFF;
+    border-top: 1px solid #ECE5D9;
+    border-bottom: 1px solid #ECE5D9;
+}
+
+.section-head {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+.section-head h2 {
+    color: #1E293B;
+}
+
+.section-head p {
+    margin-top: 12px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #D97706;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.lead {
+    font-size: 18px;
+}
+
+.note {
+    margin-top: 20px;
+    color: #6B7280;
+    font-size: 15px;
+}
+
+/* used to center buttons in the middle of a section */
+.center {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* ---------- 4. CARDS (steps, prices, testimonials, courses) ---------- */
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #ECE5D9;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
+}
+
+/* ---------- 5. BUTTONS ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
-    transition: 0.38s;
-    background-color: azure;
-    color: black;
+    transition: 0.25s;
 }
-.third{
-    background-color: black;
-    color: aqua;
-    h2{
-        color: orangered;
-    }
-}
-.vizz{
-    background-color: black;
-    color: white;
-    p{
-        background-color: orangered;
-    }
-    
-}
-.fourth{
-    background-color: #131034;
-    color: white;
-    h2{
-        color: orangered;
-    }
-    u{
-        color: blue;
-    }
-}
-.fifth{
-    color: aqua;
-    h1{
-        color: orangered;
-    }
 
+.btn:hover {
+    text-decoration: none;
 }
-.sixth{
-    background-color: black;
-    color: aqua;
+
+/* main call to action: "Schedule Here" / "Get Started" */
+.btn-primary {
+    background-color: #E05A47;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 6px 16px rgba(224, 90, 71, 0.28);
 }
-.seven{
-    border-color: #131034;
-    color: aqua;
-    h1{
-        color: orangered;
-    }
-   
+
+.btn-primary:hover {
+    background-color: #EA580C;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 26px rgba(234, 88, 12, 0.35);
 }
-.min{
-    background-color: #131034;
+
+/* outline button (white background, coral border) */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #E05A47;
+    color: #E05A47;
+    padding: 10px 22px;
 }
-.wrt{
-    background-color: black;
+
+.btn-outline:hover {
+    background-color: #FDF1EE;
 }
-.abu{
-    color: orangered;
-    background-color: #131034;
+
+/* white button, used on the coral call to action band */
+.btn-light {
+    background-color: #FFFFFF;
+    color: #E05A47;
 }
-.eight{
-    background-color: black;
-    color: aqua;
+
+.btn-light:hover {
+    background-color: #FFF7EC;
 }
-.nine{
-    background-color: black;
-    color: aqua;
-    h2{
-        color: orangered;
-    }
-    u{
-        color: blue;
-    }
+
+.btn-lg {
+    padding: 14px 32px;
 }
-.logo{
-    background-color: black;
-    img{
-        border-radius: 100px;
-    }
+
+.btn-block {
+    display: block;
+    width: 100%;
 }
-.buju{
-    border-radius: 25px;
-    background-color: white;
-    color: black;
-    h2{
-        color: orangered;
-    }
+
+/* ---------- 6. HEADER / NAVBAR (.qqq) ---------- */
+.qqq {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #FDFBF7;
+    border-bottom: 1px solid #ECE5D9;
 }
-.bym{
-    background-color: black;
-    color: aqua;
-}
-.leg{
-    background-color: black;
-    h3{
-        color: aqua;
-    }
-    color: white;
-}
-.class-containter{
-    background-color: aqua;
-    border-radius: 50px;
+
+.nav {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 68px;
+}
+
+.brand {
+    color: #1E293B;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: #E05A47;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #D97706;
+    font-weight: normal;
+}
+
+/* the menu links are hidden on phones, we show them on desktop */
+.nav-links {
+    display: none;
+}
+
+.nav-links a {
+    color: #4A5568;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #E05A47;
+    text-decoration: none;
+}
+
+/* ---------- 7. HERO (.second) ---------- */
+.second {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #FDFBF7;
+    overflow: hidden;
+}
+
+/* text on the left, photo on the right (stacked on phones) */
+.second .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.second h1 {
+    margin-bottom: 18px;
+    color: #1E293B;
+}
+
+.second .lead {
+    color: #1E293B;
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.hero-points li {
+    padding: 6px 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #ECE5D9;
+    border-radius: 20px;
+    color: #4A5568;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ---------- 8. IMAGE BLOCK (.min) ---------- */
+.min img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 6px solid #FFFFFF;
+    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
+}
+
+/* ---------- 9. TEXT BLOCK (.text-container) ---------- */
+.text-container h2 {
+    margin-bottom: 16px;
+    color: #1E293B;
+}
+
+.text-container .btn {
+    margin-top: 26px;
+}
+
+.text-container .checklist {
+    margin-top: 14px;
+}
+
+/* ---------- 10. HOW IT WORKS (.third) ---------- */
+.third ol {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* every step is a card with a round number */
+.third .card {
+    display: flex;
+    gap: 18px;
+    padding: 22px;
+    transition: 0.25s;
+}
+
+.third .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
+}
+
+.third .card > div {
+    flex: 1;
+}
+
+.step-num {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    background-color: #E05A47;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 44px;
+}
+
+.third .card h3 {
+    margin-bottom: 5px;
+    color: #1E293B;
+}
+
+.third .card p {
+    font-size: 15px;
+}
+
+/* ---------- 11. SESSION PRICING (.vizz) ---------- */
+.pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.vizz .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 26px;
+}
+
+.vizz .card h3 {
+    color: #1E293B;
+}
+
+.price-meta {
+    margin-top: 5px;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.price {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* the big price number: $149 / $299 / $399 */
+.price .amount {
+    color: #1E293B;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.price s {
+    margin-left: 8px;
+    color: #6B7280;
+    font-size: 18px;
+}
+
+.vizz .card .btn {
+    margin-top: auto;
+}
+
+/* the highlighted card is gold */
+.featured {
+    border: 2px solid #D97706;
+    background-color: #FFF7EC;
+}
+
+.badge {
+    position: absolute;
+    top: -13px;
+    right: 20px;
+    padding: 5px 14px;
+    background-color: #D97706;
+    color: #FFFFFF;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* the list of features with check marks */
+.checklist {
+    margin-top: 10px;
+    margin-bottom: 26px;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 28px;
+    margin-top: 10px;
+    color: #4A5568;
+    font-size: 15px;
+    list-style: none;
+}
+
+.checklist li:before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #D97706;
+    font-weight: bold;
+}
+
+/* ---------- 12. EMERGENCY SESSION (.fourth) ---------- */
+.fourth {
+    padding: 36px 30px;
+    background-color: #FFF7EC;
+    border: 1px solid #F6E0C0;
+    border-left: 6px solid #E05A47;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
+}
+
+.emergency-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 5px 14px;
+    background-color: #E05A47;
+    color: #FFFFFF;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fourth h2 {
+    margin-bottom: 14px;
+    color: #1E293B;
+}
+
+.fourth .lead {
+    max-width: 800px;
+    color: #1E293B;
+    font-weight: bold;
+}
+
+.emergency-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 26px;
+}
+
+.emergency-grid h3 {
+    margin-bottom: 8px;
+    color: #D97706;
+}
+
+.emergency-grid p {
+    font-size: 15px;
+}
+
+.emergency-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px dashed #E7CBA4;
+}
+
+.emergency-price {
+    color: #E05A47;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.emergency-price span {
+    color: #4A5568;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.emergency-cta {
+    color: #1E293B;
+    font-size: 15px;
+}
+
+.emergency-cta a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ---------- 13. TESTIMONIALS (.fifth header, .sixth cards) ---------- */
+.sixth {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sixth .card {
+    padding: 26px;
+    background-color: #FDFBF7;
+}
+
+.stars {
+    margin-bottom: 14px;
+    color: #D97706;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.sixth blockquote p {
+    color: #4A5568;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #ECE5D9;
+}
+
+/* small round photo of the pet */
+.card figcaption img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.card figcaption strong {
+    display: block;
+    color: #1E293B;
+    font-size: 15px;
+}
+
+.card figcaption small {
+    color: #6B7280;
+    font-size: 13px;
+}
+
+/* ---------- 14. COURSES (.first) ---------- */
+.first {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.first .card {
+    overflow: hidden;
+    transition: 0.25s;
+}
+
+.first .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.10);
+}
+
+.first .card img {
+    width: 100%;
+    height: 190px;
+    border-radius: 0;
+}
+
+.course-body {
+    padding: 24px;
+}
+
+.course-body h3 {
+    margin-bottom: 8px;
+    color: #1E293B;
+}
+
+.course-body p {
+    font-size: 15px;
+}
+
+.course-body .btn {
+    margin-top: 18px;
+}
+
+/* ---------- 15. GIFT / ABOUT / PODCAST (.seven .eight .nine) ---------- */
+/* the three sections all use the same layout:
+   an image block (.min) and a text block (.text-container) */
+.seven .container,
+.eight .container,
+.nine .container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+/* ---------- 16. FINAL CALL TO ACTION BAND ---------- */
+.cta-band {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #E05A47;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.cta-band h2 {
+    margin-bottom: 12px;
+    color: #FFFFFF;
+}
+
+.cta-band p {
+    margin-bottom: 26px;
+    color: #FFFFFF;
+}
+
+/* ---------- 17. FOOTER ---------- */
+.site-footer {
+    background-color: #1E293B;
+    color: #CBD5E1;
+    padding-top: 45px;
+}
+
+.footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 36px;
+}
+
+.footer-brand {
+    margin-bottom: 8px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-brand span {
+    color: #D97706;
+    font-weight: normal;
+}
+
+.footer-title {
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-links li {
+    margin-top: 8px;
+}
+
+.footer-links a {
+    color: #CBD5E1;
+    font-size: 15px;
+}
+
+.footer-links a:hover {
+    color: #D97706;
+}
+
+.footer-bottom {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: #94A3B8;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* =======================================================
+   18. BOOKING PAGE (main.html)
+   ======================================================= */
+.logo {
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.byg {
+    text-align: center;
+    padding: 20px;
+}
+
+.byg img {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+}
+
+/* white card with the "please read before booking" text */
+.buju {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border: 1px solid #ECE5D9;
+    border-radius: 25px;
+    box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
+}
+
+.buju h2 {
+    margin-bottom: 15px;
+    color: #E05A47;
+}
+
+.buju p {
+    margin-top: 12px;
+}
+
+/* row with the calendar title, search box and the 3 price cards */
+.class-containter {
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    align-items: baseline;
-    img{
-        border-radius: 100px;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #ECE5D9;
+    border-radius: 25px;
+}
+
+.boo h3 {
+    color: #1E293B;
+}
+
+.search-box input {
+    width: 220px;
+    padding: 10px 14px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+/* the three booking cards */
+.osh,
+.buss,
+.bizz {
+    flex: 1 1 260px;
+    padding: 20px;
+    background-color: #FDFBF7;
+    border: 1px solid #ECE5D9;
+    border-radius: 16px;
+}
+
+.osh img,
+.buss img,
+.bizz img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.osh h3,
+.osh h4,
+.buss h3,
+.bizz h3 {
+    margin-bottom: 10px;
+    color: #1E293B;
+}
+
+.osh p,
+.buss p,
+.bizz p {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+/* price row: 30 mins ..... $149 */
+.button,
+.buq,
+.uzz {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: #FFF7EC;
+    border: 1px solid #F6E0C0;
+    border-radius: 8px;
+}
+
+.button span,
+.buq span,
+.uzz span {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.button strong,
+.buq strong,
+.uzz strong {
+    color: #E05A47;
+    font-size: 20px;
+}
+
+/* testimonials header on the booking page */
+.bym {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+}
+
+.bym h3 {
+    color: #D97706;
+}
+
+.bym h1 {
+    color: #1E293B;
+}
+
+/* testimonials cards on the booking page */
+.leg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 25px auto 40px auto;
+    padding: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #ECE5D9;
+    border-radius: 25px;
+}
+
+.firstt,
+.secc,
+.thirdd {
+    flex: 1 1 280px;
+    padding: 22px;
+    background-color: #FDFBF7;
+    border: 1px solid #ECE5D9;
+    border-radius: 16px;
+}
+
+.firstt img,
+.secc img,
+.thirdd img {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 15px;
+}
+
+.firstt h3,
+.secc h3,
+.thirdd h3 {
+    margin-bottom: 10px;
+    color: #1E293B;
+}
+
+.firstt h4,
+.secc h4,
+.thirdd h4 {
+    margin-top: 15px;
+    color: #D97706;
+}
+
+/* =======================================================
+   19. COURSE PAGES (p1.html, p2.html, p3.html)
+   ======================================================= */
+.osc {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.osc img {
+    margin: 0 auto 20px auto;
+    width: 350px;
+    height: 200px;
+}
+
+.osc h2,
+.osc h3 {
+    margin-bottom: 15px;
+    color: #1E293B;
+    text-align: center;
+}
+
+.osc p {
+    margin-top: 12px;
+}
+
+.osc ul {
+    margin-top: 15px;
+    margin-left: 25px;
+    list-style: disc;
+}
+
+.osc li {
+    margin-top: 8px;
+    color: #4A5568;
+}
+
+/* the order form on the course pages */
+form {
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #FFFFFF;
+    color: #1E293B;
+    border: 1px solid #ECE5D9;
+    border-radius: 25px;
+    box-shadow: 0 6px 24px rgba(30, 41, 59, 0.07);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #1E293B;
+}
+
+form input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+form h3 {
+    margin-top: 20px;
+    color: #1E293B;
+}
+
+/* checkout button on the course pages */
+.joze {
+    width: 190px;
+    height: 40px;
+    margin-top: 15px;
+    background-color: #E05A47;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.joze:hover {
+    background-color: #EA580C;
+    transform: scale(1.02);
+}
+
+/* =======================================================
+   20. RESPONSIVE (phones and tablets)
+   ======================================================= */
+
+/* phones: 768px and smaller */
+@media (max-width: 768px) {
+    .nav {
+        justify-content: center;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
-}  
-.osh{
-    flex: 1;
 
+    .nav .btn {
+        width: 100%;
+    }
+
+    .min img {
+        height: 320px;
+    }
+
+    /* steps stack on top of each other */
+    .third .card {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .emergency-foot {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .class-containter,
+    .leg {
+        flex-direction: column;
+    }
 }
-.buss{
-    flex: 1;
+
+/* small phones: 599px and smaller - center the call to action buttons */
+@media (max-width: 599px) {
+    .hero-actions,
+    .center {
+        justify-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions .btn,
+    .center .btn,
+    .text-container .btn {
+        display: block;
+        width: 100%;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-points {
+        justify-content: center;
+    }
 }
-.bizz{
-    flex: 1;
 
+/* =======================================================
+   21. RESPONSIVE (desktop)
+   ======================================================= */
 
+/* tablets and desktop: 768px and bigger */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    .nav {
+        flex-wrap: nowrap;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-left: auto;
+        margin-right: 24px;
+    }
+
+    /* hero side by side: text left, photo right */
+    .second .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .text-container {
+        flex: 1.1;
+    }
+
+    .min {
+        flex: 0.9;
+    }
+
+    .min img {
+        height: 420px;
+    }
+
+    .second .min img {
+        height: 480px;
+    }
+
+    /* 3 price cards in one row */
+    .pricing-grid {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .vizz .card {
+        flex: 1;
+    }
+
+    .emergency-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .emergency-grid > div {
+        flex: 1;
+    }
+
+    .emergency-foot {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* 3 testimonial cards in one row */
+    .sixth,
+    .first {
+        flex-direction: row;
+    }
+
+    .sixth .card,
+    .first .card {
+        flex: 1;
+    }
+
+    /* picture left, text right */
+    .seven .container,
+    .eight .container,
+    .nine .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+    }
+
+    /* the "about" section puts the photo on the right */
+    .eight .container {
+        flex-direction: row-reverse;
+    }
+
+    .footer-grid {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .footer-grid > div:first-child {
+        flex: 2;
+    }
 }
 
+/* wide monitors: 1200px and bigger - keep everything centered */
+@media (min-width: 1200px) {
+    .hero-actions,
+    .center {
+        justify-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-points {
+        justify-content: center;
+    }
+
+    .cta-inner {
+        margin: 0 auto;
+    }
+}
