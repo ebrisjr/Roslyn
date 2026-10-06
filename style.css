@@ -150,8 +150,8 @@ img {
     border-bottom: 1px solid #ECE5D9; /* thin line under the bar */
 }
 
-/* The navbar is a flex row holding: brand / menu links / button
-   display:flex          -> puts the three items in one line
+/* The navbar is a flex row holding: brand / menu links
+   display:flex          -> puts the two items in one line
    justify-content:space-between -> pushes them to the two edges
    align-items:center    -> lines them up vertically
    flex-wrap:wrap        -> they wrap onto a second line if space runs out */
@@ -179,9 +179,11 @@ img {
    overflow:hidden clips anything that would stick out sideways. */
 .second { padding-top: 50px; padding-bottom: 50px; background-color: #FDFBF7; overflow: hidden; }
 
-/* display:flex + flex-direction:column = text and photo stack top-to-bottom on phones.
-   A media query near the bottom flips this into a side-by-side row on desktop.
-   gap:40px = the space between the text and the photo. */
+/* The hero holds three blocks that stack in reading order on phones:
+   1) headline block, 2) the photo, 3) the rest of the text + buttons.
+   display:flex + flex-direction:column = they pile up top-to-bottom.
+   A media query near the bottom turns this into two columns on desktop.
+   gap:40px = the space between each block. */
 .second .container { display: flex; flex-direction: column; gap: 40px; }
 .second h1 { margin-bottom: 18px; color: #1E293B; }
 .second .lead { color: #1E293B; font-weight: 600; } /* intro line reads a bit stronger */
@@ -611,15 +613,13 @@ form h3 { margin-top: 20px; color: #1E293B; }
 /* @media (max-width: 768px) = these rules switch ON when the screen
    is 768px wide or smaller (phones and small tablets). */
 @media (max-width: 768px) {
-    /* Brand, links and button stack and center instead of sharing one row */
+    /* Brand and links stack and center instead of sharing one row */
     .nav {
         justify-content: center; /* moves items to the middle */
         text-align: center;
         padding-top: 12px;
         padding-bottom: 12px;
     }
-
-    .nav .btn { width: 100%; } /* full-width button = a much easier tap target */
 
     .min img { height: 320px; } /* shorter photos so less scrolling on phones */
 
@@ -692,16 +692,24 @@ form h3 { margin-top: 20px; color: #1E293B; }
         margin-right: 24px;
     }
 
-    /* HERO GOES SIDE BY SIDE: text on the left, photo on the right.
-       flex-direction:row switches the column back into a row. */
+    /* HERO GOES SIDE BY SIDE: headline on the left, photo on the right.
+       display:grid + grid-template-columns creates the two columns.
+       The photo spans BOTH rows so it sits beside the whole text block.
+       On phones the grid is ignored and the blocks simply stack:
+       headline -> photo -> text. */
     .second .container {
-        flex-direction: row;
-        align-items: center; /* vertically centers text and photo */
-        gap: 50px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr; /* left column slightly wider than the photo */
+        column-gap: 50px;   /* space between text and photo */
+        row-gap: 0;         /* the headings and paragraphs provide their own spacing */
+        align-items: start; /* blocks stick to the top instead of floating in the middle */
     }
+    .second .container > .text-container:first-child { grid-column: 1; grid-row: 1; } /* headline block */
+    .second .min { grid-column: 2; grid-row: 1 / span 2; align-self: center; } /* photo spans both rows */
+    .second .container > .text-container:last-child { grid-column: 1; grid-row: 2; } /* text + buttons block */
 
-    .text-container { flex: 1.1; } /* text column takes a little more space */
-    .min { flex: 0.9; }            /* photo column takes a little less */
+    .text-container { flex: 1.1; } /* gift/about/podcast sections: text column gets more space */
+    .min { flex: 0.9; }            /* gift/about/podcast sections: photo column gets less space */
 
     .min img { height: 420px; }      /* taller photos on desktop */
     .second .min img { height: 480px; } /* the hero photo is the biggest one */
